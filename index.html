@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head> 
+    <meta charset="UTF-8"> 
+    <title>Анимация спрайтов</title> 
+  </head> 
+  <body> 
+    <canvas id="myCanvas" width="500" height="500"> 
+     
+    </canvas> 
+    <script> 
+      width = 92,
+      height = 125,
+      frames1 = 0,
+      currentFrame1 = 16,
+	  move = -50,
+	  
+      
+      canvas = document.getElementById("myCanvas");
+ 
+  var ctx = canvas.getContext("2d");
+  var run = new Image();
+  
+  
+      run.src = 'index.png';
+	  
+	var draw1 = function() {
+      ctx.clearRect(move, 0, width, height);
+	  ctx.drawImage(run, width* currentFrame1, height , width, height, move, 0, width, height);
+	  
+      if (currentFrame1 == frames1) {
+        currentFrame1 = 16;
+		
+      } else {
+        currentFrame1--;
+		move+=4;
+		if(move>=500){move=-50;}
+      }
+  }
+  
+  setInterval(draw1, 30);
+  
+  
+    </script> 
+	
+  </body> 
+</html>
